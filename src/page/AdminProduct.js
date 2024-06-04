@@ -118,6 +118,9 @@ const AdminProduct = () => {
         <Button className="mt-2 mb-2" onClick={handleClickNewItem}>
           Add New Item +
         </Button>
+        <div>신상보여주기(최근1주일내에 등록된 신상품들을, user가 보는 홈페이지에 띄우기)</div>
+        <div>신상홍보제거(홈페이지에 띄운 팝업 제거)</div>
+        <div>테이블 head를 클릭하면, 상품목록의 순서(내림순, 올림순)으로 정렬 됩니다.</div>
 
         <div style={{display:'flex', gap:'40px'}}>
           <h5>Total Products: {totalProductCount} 품목</h5>

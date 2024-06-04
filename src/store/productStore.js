@@ -36,10 +36,12 @@ const productStore =create((set,get)=>({
 			showPopup: false,
 		});
 	},
-	emptyNewProductList:()=>set({
+	emptyNewProductList:()=>{
+		uiStore.getState().showToastMessage('신상홍보 팝업을 제거했습니다.', 'success')
+		set({
 		newProductList:[],
 		showPopup: false
-	}), 
+	})}, 
 	makeNewProductList:async()=>{
 		try{ // query params없이 보내면 모든 데이터 받는다.
 			const days = 7;

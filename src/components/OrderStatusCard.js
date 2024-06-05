@@ -13,7 +13,7 @@ const OrderStatusCard = ({order, item}) => {
             src={item.image} alt="" height={96}
           />
         </Col>
-        <Col xs={5} className="order-info">
+        <Col xs={7} className="order-info">
           {/* <div>
             <strong>주문번호: 1234</strong>
           </div> */}

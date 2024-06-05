@@ -49,7 +49,7 @@ const Sidebar = () => {
           <Navbar.Brand href="#"></Navbar.Brand>
           <Navbar.Toggle
             aria-controls={`offcanvasNavbar-expand`}
-            onClick={() => setShow(!show)}
+            onClick={() => setShow(true)}
           />
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand`}

@@ -229,11 +229,12 @@ body{
   font-weight: bold;
   padding: 20px 10px;
   list-style-type: none;
+}
+.sidebar-item a{
   text-decoration: none;
     /* 링크의 밑줄을 없앰 */
-
-  
 }
+
 .sidebar-item:hover{
   color:white;
   background-color: red;

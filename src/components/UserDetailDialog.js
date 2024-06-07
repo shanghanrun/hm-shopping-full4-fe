@@ -32,7 +32,7 @@ const UserDetailDialog = ({ open, handleClose, mode }) => {
     setUserEmail(event.target.value);
   };
   const handleLevelChange = (event) => {
-    console.log('userLevel :', event.targe.value)
+    console.log('userLevel :', event.target.value)
     setUserLevel(event.target.value);
   };
   const handleMemoChange = (event) => {

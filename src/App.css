@@ -234,6 +234,15 @@ body{
   text-decoration: none;
     /* 링크의 밑줄을 없앰 */
 }
+.side-menu-item{
+  width: 100%;
+}
+.side-menu-item:hover{
+  background: pink;
+}
+.side-menu-item a{
+  text-decoration: none;
+}
 
 .sidebar-item:hover{
   color:white;

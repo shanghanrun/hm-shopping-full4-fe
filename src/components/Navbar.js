@@ -117,7 +117,7 @@ const Navbar = ({ user }) => {
 
         <div className="side-menu-list" id="menu-list">
           {menuList.map((menu, index) => (
-            <li key={index}className="sidebar-item">
+            <li key={index}className="side-menu-item">
               <Link to={`/${menu.toLowerCase()}`}>{(menu==='Computer')? 'Computer/가전/자동차' : menu}</Link>
             </li>
           ))}

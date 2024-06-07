@@ -235,6 +235,10 @@ body{
     /* 링크의 밑줄을 없앰 */
 }
 .side-menu-item{
+  color: black;
+    font-weight: bold;
+    padding: 20px 10px;
+    list-style-type: none;
   width: 100%;
   text-align: start;
 }

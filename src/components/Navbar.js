@@ -17,6 +17,7 @@ import {useSearchParams} from 'react-router-dom'
 import PriceDropdown from "./PriceDropdown";
 import CategoryDropdown from "./CategoryDropdown";
 import SizeDropdown from "./SizeDropdown";
+import SearchBox from "./SearchBox";
 
 const Navbar = ({ user }) => {
   // console.log('user 정보:',user)
@@ -192,16 +193,22 @@ const Navbar = ({ user }) => {
           ))}
         </ul>
         {!isMobile && ( // admin페이지에서 같은 search-box스타일을 쓰고있음 그래서 여기서 서치박스 안보이는것 처리를 해줌
-          <div className="search-box landing-search-box ">
-            <FontAwesomeIcon icon={faSearch} />
-            <input
-              type="text"
-              placeholder="제품검색"
-              onKeyDown={onCheckEnter}
-              onChange={(e)=>{console.log(e.target.value); setKeyword(e.target.value)}}
-              value={keyword}
-            />
-          </div>
+          <SearchBox
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            placeholder="제품검색"
+            field="name"
+          />
+          // <div className="search-box landing-search-box ">
+          //   <FontAwesomeIcon icon={faSearch} />
+          //   <input
+          //     type="text"
+          //     placeholder="제품검색"
+          //     onKeyDown={onCheckEnter}
+          //     onChange={(e)=>{console.log(e.target.value); setKeyword(e.target.value)}}
+          //     value={keyword}
+          //   />
+          // </div>
         )}
       </div>
     </div>

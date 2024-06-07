@@ -118,6 +118,7 @@ const productStore =create((set,get)=>({
 		}catch(e){
 			console.log('e.error:', e.error)
 			set({error: e.error})
+			uiStore.getState().showToastMessage('검색 결과 없음','error')
 			// uiStore.getState().showToastMessage(e.error, 'error');
 			// payment페이지처럼 페이지네이션 안된 곳에서 에러메시지 안나오도록
 		}

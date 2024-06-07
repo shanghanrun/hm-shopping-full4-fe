@@ -14,6 +14,7 @@ const AdminProduct = () => {
     const {productList, getProductList, totalPage, setSelectedProduct, deleteProduct, totalProductCount, selectedProduct, batchCreateProducts, productUpdated, openPopup,emptyNewProductList } = productStore()
     const {getUserList} = userStore()
   const {getAllUserOrderList} = orderStore()
+  const {showToastMessage} = uiStore()
   const navigate = useNavigate();
   const [showDialog, setShowDialog] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -83,10 +84,12 @@ const AdminProduct = () => {
   };
   const handleUpload = async () => {
     if (!selectedFile) {
-      console.error("파일을 선택해주세요.");
+      showToastMessage("파일을 선택해주세요.", 'error');
       return;
     }
-    console.log('selectedFile :', selectedFile)
+    if (!selectedFile.endsWith('.xslx')){
+      showToastMessage('올바른 형식의 파일을 사용하세요.','error')
+    }
 
     const formData = new FormData();
     console.log('selectedFile :', selectedFile)

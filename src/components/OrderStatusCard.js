@@ -8,7 +8,7 @@ const OrderStatusCard = ({order, item}) => {
   return (
     <div>
       <Row className="status-card">
-        <Col xs={3}>
+        <Col xs={5}>
           <img
             src={item.image} alt="" height={96}
           />

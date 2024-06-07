@@ -90,7 +90,7 @@ const Navbar = ({ user }) => {
   
   return (
     <div>
-      {/* {showSearchBox && (
+      {showSearchBox && (
         <div className="display-space-between mobile-search-box w-100">
           <div className="search display-space-between w-100">
             <div style={{zIndex:'2'}}>
@@ -109,7 +109,7 @@ const Navbar = ({ user }) => {
             </button>
           </div>
         </div>
-      )} */}
+      )}
       <div className="side-menu" style={{ width: width }}>
         <button className="closebtn" onClick={() => setWidth(0)}>
           &times;
@@ -117,7 +117,9 @@ const Navbar = ({ user }) => {
 
         <div className="side-menu-list" id="menu-list">
           {menuList.map((menu, index) => (
-            <button key={index}>{menu}</button>
+            <li key={index}className="sidebar-item">
+              <Link to={`/${menu.toLowerCase()}`}>{(menu==='Computer')? 'Computer/가전/자동차' : menu}</Link>
+            </li>
           ))}
         </div>
       </div>

@@ -27,7 +27,7 @@ const OrderStatusCardOuter = ({order}) => {
       <Row className="status-card">
         <Col xs={2}>
           <img
-            src={image} alt="" height={96}
+            src={image} alt="" height={120}
           />
         </Col>
         <Col xs={8} className="order-info">

@@ -15,6 +15,15 @@ const UserDetailDialog = ({ open, handleClose, mode }) => {
   const [userMemo, setUserMemo] = useState();
   const [userImage, setUserImage]= useState();
 
+  useEffect(() => {
+    if (mode === 'edit' && selectedUser) {
+      setUserName(selectedUser.name);
+      setUserEmail(selectedUser.email);
+      setUserLevel(selectedUser.level);
+      setUserMemo(selectedUser.memo);
+      setUserImage(selectedUser.image);
+    }
+  }, [selectedUser, mode]);
 
   const handleNameChange = (event) => {
     setUserName(event.target.value);
@@ -56,9 +65,6 @@ const UserDetailDialog = ({ open, handleClose, mode }) => {
         <Modal.Title>User Detail 정보</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        
-        
-        
         <Form onSubmit={submitNewInfo}>
           {
           (mode ==='new')?

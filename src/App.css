@@ -236,8 +236,10 @@ body{
 }
 .side-menu-item{
   color: black;
+  font-size: 30px;
     font-weight: bold;
     padding: 20px 10px;
+    margin-left: 20px;
     list-style-type: none;
   width: 100%;
   text-align: start;
@@ -247,6 +249,7 @@ body{
 }
 .side-menu-item a{
   text-decoration: none;
+  color: black;
 }
 
 .sidebar-item:hover{

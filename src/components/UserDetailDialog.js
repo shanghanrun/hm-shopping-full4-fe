@@ -9,11 +9,11 @@ import userStore from '../store/userStore'
 const UserDetailDialog = ({ open, handleClose, mode }) => {
   const {selectedUser, updateUser, createNewUser} = userStore()
   console.log('selectedUser :', selectedUser)
-  const [userName, setUserName] = useState(selectedUser?.name)
-  const [userEmail, setUserEmail] = useState(selectedUser?.email)
-  const [userLevel, setUserLevel] = useState(selectedUser?.level);
-  const [userMemo, setUserMemo] = useState(selectedUser?.memo);
-  const [userImage, setUserImage]= useState(selectedUser?.image);
+  const [userName, setUserName] = useState()
+  const [userEmail, setUserEmail] = useState()
+  const [userLevel, setUserLevel] = useState();
+  const [userMemo, setUserMemo] = useState();
+  const [userImage, setUserImage]= useState();
 
 
   const handleNameChange = (event) => {
@@ -56,35 +56,40 @@ const UserDetailDialog = ({ open, handleClose, mode }) => {
         <Modal.Title>User Detail 정보</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {
-        (mode ==='new')?
-          <div>
-            <Form.Group as={Col} controlId="name">
-              <Form.Label>name</Form.Label>
-              <Form.Control
-                type="text"
-                value={userName}
-                onChange={handleNameChange}
-              />
-            </Form.Group>
-            <Form.Group as={Col} controlId="email">
-              <Form.Label>email</Form.Label>
-              <Form.Control
-                type="text"
-                value={userEmail}
-                onChange={handleEmailChange}
-              />
-            </Form.Group>
-          </div>
-        :
-          <div>
-            <p>유저 name: {selectedUser?.name}</p>
-            <p>이메일: {selectedUser?.email}</p>
-          </div>
-      }
+        
         
         
         <Form onSubmit={submitNewInfo}>
+          {
+          (mode ==='new')?
+            <div>
+              <Form.Group as={Col} controlId="name">
+                <Form.Label>name</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={userName}
+                  required
+                  onChange={handleNameChange}
+                />
+              </Form.Group>
+              <Form.Group as={Col} controlId="email">
+                <Form.Label>email</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={userEmail}
+                  required
+                  onChange={handleEmailChange}
+                />
+              </Form.Group>
+            </div>
+          :
+            <div>
+              <p>유저 name: {selectedUser?.name}</p>
+              <p>이메일: {selectedUser?.email}</p>
+            </div>
+          }
+
+
           <Form.Group as={Col} controlId="level">
             <Form.Label>Level</Form.Label>
             <Form.Select value={userLevel} onChange={handleLevelChange}>

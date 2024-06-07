@@ -49,6 +49,7 @@ const userStore =create((set,get)=>({
 		}
 	},
 	updateUser:async(userId, level, memo, image)=>{
+		console.log('userLevel :', level)
 		try{
 			const resp = await api.put('/user', {userId,level,memo, image})
 			set({

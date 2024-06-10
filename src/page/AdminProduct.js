@@ -53,7 +53,10 @@ const AdminProduct = () => {
 
   const deleteItem = async (id) => {
     //아이템 삭제하가ㅣ
-    await deleteProduct(id, navigate)
+    const confirmed = window.confirm("정말로 삭제하시겠습니까?")
+    if(confirmed){
+      await deleteProduct(id, navigate)
+    }
   };
 
   const openEditForm = (product) => {

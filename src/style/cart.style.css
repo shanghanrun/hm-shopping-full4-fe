@@ -1,5 +1,7 @@
 .product-card-cart{
     margin-bottom: 10px;
+    border: 1px solid rgb(168, 168, 168);
+    border-radius: 10px;
 }
 .qty-dropdown{
     max-width:400px;

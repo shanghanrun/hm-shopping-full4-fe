@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Row, Col, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,12 +12,13 @@ const CartProductCard = ({ item }) => {
    const stock = {...item.productId.stock}
    const stockCount = stock[item.size]
    console.log('내 아이템 재고량:', stockCount)
+   const [total, setTotal]= useState(item?.productId.price)
 
   const handleQtyChange = (event) => {
     //아이템 수량을 수정한다
     // setQty(event.target.value)
     updateQty(item.productId._id, item.size, event.target.value)
-    // setTotal(item.productId.price *event.target.value)
+    setTotal(item.productId.price *event.target.value)
 
   };
 
@@ -47,7 +48,7 @@ const CartProductCard = ({ item }) => {
             <strong>₩ {currencyFormat(item.productId.price)}</strong>
           </div>
           <div>Size: {item.size}</div>
-          <div>Total: ₩ {currencyFormat(item.productId.price*item.qty)}</div>
+          <div>Total: ₩ {currencyFormat(total)}</div>
           <div>
             Quantity:
             <Form.Select

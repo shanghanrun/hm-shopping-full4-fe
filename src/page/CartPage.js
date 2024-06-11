@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import cartStore from '../store/cartStore'
 import userStore from '../store/userStore'
 import CartProductCard from "../components/CartProductCard";
-import OrderReceipt from "../components/OrderReceipt";
+import CartOrderReceipt from "../components/CartOrderReceipt";
 import "../style/cart.style.css";
 import { ColorRing } from "react-loader-spinner";
 
@@ -15,7 +15,7 @@ const CartPage = () => {
   console.log('CartPage의 cart :', cart)
 
   useEffect(() => {
-    zeroCart()
+    zeroCart()  //이것은 cartStore의 cartCount를 0으로 만드는 건데.. 내가 왜 했을까??
     //카트불러오기
     getCart()
   }, [cartCount]);
@@ -42,7 +42,7 @@ const CartPage = () => {
           </div>
         </Col>
         <Col xs={12} md={5}>
-          <OrderReceipt items={cart?.items || []}
+          <CartOrderReceipt items={cart?.items || []}
             user={user}
           />
         </Col>

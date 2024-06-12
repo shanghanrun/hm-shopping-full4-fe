@@ -34,7 +34,7 @@ const ProductTable = ({ header, data, deleteItem, openEditForm }) => {
               <tr key={index}>
                 <th>{index}</th>
                 <th>{item.sku}</th>
-                <th style={{ minWidth: "100px", maxWidth:"180",wordWrap:'break-word' }}>{item.name}</th>
+                <th style={{ minWidth: "100px", maxWidth:"150px",wordWrap:'break-word' }}>{item.name}</th>
                 <th>{currencyFormat(item.price)}</th>
                 <th>
                   {Object.keys(item.stock).map((size, index) => (

@@ -13,6 +13,7 @@ function closeThis(){
     <div className={`overflow-x ${show? "active":"inactive"}`} style={{background:'pink'}}>
       <h5 style={{marginTop:"10px"}}>재고부족 상품 : {data?.length} 개 (stock이 5개 이하인 경우)</h5>
       <h6>재고부족 상품 테이블을 지우려면, '재고부족 상품검색 취소'를 누르거나, 테이블 head를 클릭하세요.</h6>
+      <h6>재고부족 상품은, Edit을 통해 수량을 늘려주세요.</h6>
       <Table striped bordered hover>
         <thead>
           <tr>

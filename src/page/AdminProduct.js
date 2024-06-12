@@ -9,15 +9,17 @@ import { useNavigate } from "react-router-dom";
 import ProductTable from "../components/ProductTable";
 import orderStore from '../store/orderStore'
 import userStore from '../store/userStore'
+import LowStockProductTable from "../components/LowStockProductTable";
 
 const AdminProduct = () => {
-    const {productList, getProductList, totalPage, setSelectedProduct, deleteProduct, totalProductCount, selectedProduct, batchCreateProducts, productUpdated, openPopup,emptyNewProductList } = productStore()
+    const {productList, getProductList, totalPage, setSelectedProduct, deleteProduct, totalProductCount, selectedProduct, batchCreateProducts, productUpdated, openPopup,emptyNewProductList, getLowStockItems, lowStockItems } = productStore()
     const {getUserList} = userStore()
   const {getAllUserOrderList} = orderStore()
   const {showToastMessage} = uiStore()
   const navigate = useNavigate();
   const [showDialog, setShowDialog] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [showLowStockProduct, setShowLowStockProduct] =useState(false)
 
 
   const [searchQuery, setSearchQuery] = useState({
@@ -38,6 +40,7 @@ const AdminProduct = () => {
   useEffect(()=>{
     getAllUserOrderList() //order 페이지를 위해 미리 데이터를 로딩해 둔다.
     getUserList() // AdminAccount를 위해 미리
+    getLowStockItems()
   },[])
 
   //상품리스트 가져오기 (url쿼리 맞춰서)
@@ -103,6 +106,7 @@ const AdminProduct = () => {
     batchCreateProducts(formData, navigate)
   };
 
+
   return (
     <div className="locate-center">
       <Container>
@@ -124,6 +128,7 @@ const AdminProduct = () => {
         <Button className="mt-2 mb-2" onClick={handleClickNewItem}>
           Add New Item +
         </Button>
+        <Button onClick={()=>setShowLowStockProduct(true)}>재고부족 상품검색</Button>
         <div>신상보여주기(최근1주일내에 등록된 신상품들을, user가 보는 홈페이지에 띄우기)</div>
         <div>신상홍보제거(홈페이지에 띄운 팝업 제거)</div>
         <div>테이블 head를 클릭하면, 상품목록의 순서(내림순, 올림순)으로 정렬 됩니다.</div>
@@ -132,6 +137,15 @@ const AdminProduct = () => {
           <h5>Total Products: {totalProductCount} 품목</h5>
           <h6>found current page Products: {productList?.length}개</h6>
         </div>
+
+        <LowStockProductTable 
+          header={tableHeader}
+          data={lowStockItems}
+          deleteItem={deleteItem}
+          openEditForm={openEditForm}
+          show={showLowStockProduct}
+          setShowLowStockProduct={setShowLowStockProduct}
+        />
 
         <ProductTable
           header={tableHeader}

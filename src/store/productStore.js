@@ -20,6 +20,7 @@ const productStore =create((set,get)=>({
 	clothesList:[],
 	computerList:[],
 	initialProductList:[],
+	lowStockItems:[],
 	totalPage:1,
 	totalProductCount:1,
 	newProductList:[], // 신상 공개용 리스트 
@@ -241,6 +242,16 @@ const productStore =create((set,get)=>({
 			// navigate('/product/'+id) 현재페이지 url이 바뀔 필요없다.
 
 		}catch(e){
+			console.log('e.error:', e.error)
+			set({error: e.error})
+			uiStore.getState().showToastMessage(e.error, 'error');
+		}
+	},
+	getLowStockItems:async()=>{
+		try{
+			const resp = await api.get('/product/low-stock-products')
+			set({lowStockItems: resp.data.data})
+		} catch(e){
 			console.log('e.error:', e.error)
 			set({error: e.error})
 			uiStore.getState().showToastMessage(e.error, 'error');

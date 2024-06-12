@@ -4,27 +4,19 @@ import Table from "react-bootstrap/Table";
 import { currencyFormat } from "../utils/number";
 import productStore from '../store/productStore'
 
-const ProductTable = ({ header, data, deleteItem, openEditForm }) => {
-  const {sortProductListBySkuDesc, sortProductListBySkuAsc } = productStore()
-  const [sortBySkuDesc, setSortBySkuDesc] = useState(true);
+const LowStockProductTable = ({ header, data, deleteItem, openEditForm,show, setShowLowStockProduct }) => {
 
-  async function sortBySku(){
-    if (sortBySkuDesc) {
-      await sortProductListBySkuDesc();
-    } else {
-      sortProductListBySkuAsc();
-    }
-    // 토글
-    setSortBySkuDesc(!sortBySkuDesc);
-  }
+function closeThis(){
+  setShowLowStockProduct(false)
+}
   
   return (
-    <div className="overflow-x">
+    <div className={`overflow-x ${show? "active":"inactive"}`}>
       <Table striped bordered hover>
         <thead>
           <tr>
             {header.map((title, index) => (
-              <th key={index} onClick={sortBySku} style={{ cursor: 'pointer' }}>{title}</th>
+              <th key={index} onClick={closeThis} style={{ cursor: 'pointer' }}>{title}</th>
             ))}
           </tr>
         </thead>
@@ -70,4 +62,4 @@ const ProductTable = ({ header, data, deleteItem, openEditForm }) => {
     </div>
   );
 };
-export default ProductTable;
+export default LowStockProductTable;

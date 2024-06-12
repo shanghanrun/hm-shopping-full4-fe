@@ -23,7 +23,7 @@ const OrderTable = ({ header, data, openEditForm }) => {
                 <th>{item.updatedAt.slice(0, 10)}</th>
                 <th>{item.email}</th>
                 {item.items.length > 0 ? (
-                  <th style={{maxWidth:"130px"}}>
+                  <th style={{maxWidth:"160px"}}>
                     {item.items[0].name}
                     {item.items.length > 1 && ` 외 ${item.items.length - 1}개`}
                   </th>

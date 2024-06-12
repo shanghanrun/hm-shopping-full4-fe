@@ -79,7 +79,7 @@ const AdminOrderPage = () => {
         <ReactPaginate
           nextLabel="next >"
           onPageChange={handlePageClick}
-          pageRangeDisplayed={10}
+          pageRangeDisplayed={5}
           pageCount={totalPageNum}
           forcePage={searchQuery.page - 1}
           previousLabel="< previous"

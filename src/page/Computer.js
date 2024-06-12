@@ -8,9 +8,11 @@ import userStore from '../store/userStore'
 import Popup from "../components/Popup";
 
 const Computer =()=>{
-const {computerList}= productStore()
+const {computerList, getProductList}= productStore()
 
- 
+  useEffect(()=>{
+    getProductList()
+  },[])
   return (
     <Container>
       <Row>

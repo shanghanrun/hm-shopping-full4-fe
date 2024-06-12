@@ -1,3 +1,6 @@
+// productStore에서 관리하므로 이 스토어는 필요없다.
+// 만약을 위해 그냥 놔둔다.
+
 import {create} from 'zustand'
 import api from '../utils/api';
 import uiStore from './uiStore'

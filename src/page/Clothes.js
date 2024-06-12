@@ -1,11 +1,14 @@
-import React from "react";
+import React, {useEffect} from "react";
 import ClothesCard from "../components/ClothesCard";
 import { Row, Col, Container } from "react-bootstrap";
 import productStore from '../store/productStore';
 
 const Clothes =()=>{
-const {clothesList}= productStore()
+const {clothesList, getProductList}= productStore()
  
+  useEffect(()=>{
+    getProductList()
+  },[])
   return (
     <Container>
       <Row>

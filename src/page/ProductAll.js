@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import { Row, Col, Container } from "react-bootstrap";
 import productStore from '../store/productStore';
-import clothesStore from '../store/clothesStore'
+// import clothesStore from '../store/clothesStore'
 import orderStore from '../store/orderStore'
 import userStore from '../store/userStore'
 // import uiStore from '../store/uiStore'

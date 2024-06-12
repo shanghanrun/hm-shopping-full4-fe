@@ -12,6 +12,8 @@ function closeThis(){
   
   return (
     <div className={`overflow-x ${show? "active":"inactive"}`}>
+      <h4>재고부족 상품 : {data?.length} 개 (stock이 5개 이하인 경우)</h4>
+      <h6>재고부족 상품 테이블을 지우려면, 테이블 head를 클릭하세요.</h6>
       <Table striped bordered hover>
         <thead>
           <tr>

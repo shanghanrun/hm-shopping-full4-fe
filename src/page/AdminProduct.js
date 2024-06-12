@@ -147,6 +147,8 @@ const AdminProduct = () => {
           setShowLowStockProduct={setShowLowStockProduct}
         />
 
+        <div style={{height:'20px'}}></div>
+
         <ProductTable
           header={tableHeader}
           data={productList}

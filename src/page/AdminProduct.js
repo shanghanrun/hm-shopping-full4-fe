@@ -41,7 +41,7 @@ const AdminProduct = () => {
     getAllUserOrderList() //order 페이지를 위해 미리 데이터를 로딩해 둔다.
     getUserList() // AdminAccount를 위해 미리
     getLowStockItems()
-  },[])
+  },[productUpdated])
 
   //상품리스트 가져오기 (url쿼리 맞춰서)
   useEffect(()=>{

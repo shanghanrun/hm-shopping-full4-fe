@@ -18,6 +18,7 @@ const CartPage = () => {
     zeroCart()  //이것은 cartStore의 cartCount를 0으로 만드는 건데.. 내가 왜 했을까??
     //카트불러오기
     getCart()
+    conosle.log('cartCount :',cartCount)
   }, [cartCount]);
 
   return (

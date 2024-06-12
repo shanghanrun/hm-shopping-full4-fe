@@ -42,7 +42,10 @@ const cartStore =create((set,get)=>({
 		}catch(e){
 			console.log('에러객체:', e)
 			console.log('e.error:', e.error)
-			set({error: e.error})
+			set({
+				error: e.error,
+				cartCount:0
+			})
 			// uiStore.getState().showToastMessage(e.error, 'error');  로그인시에 불필요한 에러메시지 안나오도록
 		}
 	},

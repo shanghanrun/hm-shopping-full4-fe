@@ -31,7 +31,8 @@ const CartPage = () => {
                 <CartProductCard key={item._id} item={item}/>
               ))
             ) : (
-              (cartCount === 0) ? (
+              // (cartCount === 0) ? (
+              (cart.items.length === 0) ? (
                 <div className="text-align-center empty-bag">
                   <h2>카트가 비어있습니다.</h2>
                   <div>상품을 담아주세요!</div>

@@ -27,9 +27,6 @@ const ProductCard = ({item}) => {
     //모든 사이즈의 재고가 없을 경우 품절 상태로 설정
     const isSoldOut = Object.keys(item.stock).every((key) => item.stock[key] === 0);
     setSoldout(isSoldOut);
-    if(isSoldOut){
-      console.log('품절된 상품입니다.')
-    }
 
 
   },[item])

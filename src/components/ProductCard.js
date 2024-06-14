@@ -38,7 +38,8 @@ const ProductCard = ({item}) => {
       <div>{item?.name}</div>
       <div>W {currencyFormat(item?.price)}</div>
       {/* <div>{soldout? <Badge bg="danger">품절</Badge> : ''}</div> */}
-      {soldout && <Badge bg='danger'>품절</Badge>}
+      {soldout && <Badge bg='danger' style={{width:'60px'}}>품절</Badge>}
+      <div style={{height: '10px'}}></div>
     </div>
   );
 };

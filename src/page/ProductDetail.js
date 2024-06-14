@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Container, Row, Col, Button, Dropdown } from "react-bootstrap";
+import { Container, Row, Col, Button, Dropdown, Badge } from "react-bootstrap";
 // import { ColorRing } from "react-loader-spinner";
 //데이터를 미리 받아오니, 로딩스피너가 불필요하다.
 
@@ -19,6 +19,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   console.log('productDetail 페이지 상품id :', id)
   const [sizeError, setSizeError] = useState(false);
+  const [soldout, setSoldout] = useState(false)
 
   const navigate = useNavigate();
 
@@ -42,6 +43,14 @@ const ProductDetail = () => {
     setSizeError(false)
   };
 
+  useEffect(()=>{
+    // 품절된 아이템인지 검사
+    //모든 사이즈의 재고가 없을 경우 품절 상태로 설정
+    const isSoldOut = Object.keys(selectedProduct.stock).every((key) => selectedProduct.stock[key] === 0);
+    setSoldout(isSoldOut);
+
+
+  },[selectedProduct])
   return (
     <Container className="product-detail-card">
       <Row>
@@ -53,6 +62,8 @@ const ProductDetail = () => {
           <div className="product-info">{selectedProduct?.name}</div>
           <div className="product-info">₩ {currencyFormat(selectedProduct?.price)}</div>
           <div className="product-info">{selectedProduct?.description}</div>
+          {soldout && <Badge bg='danger' style={{width:'60px'}}>품절</Badge>}
+          <div style={{height: '10px'}}></div>
 
           <Dropdown
             className="drop-down size-drop-down"

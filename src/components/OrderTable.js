@@ -40,7 +40,9 @@ const OrderTable = ({ header, data, openEditForm }) => {
               </tr>
             ))
           ) : (
-            <tr>No Data to show</tr>
+            <tr>
+              <td colSpan={header.length} style={{ textAlign: "center" }}>No Data to show</td>
+            </tr>
           )}
         </tbody>
       </Table>
